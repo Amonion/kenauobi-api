@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+/* --primaryBG: #f8f9fa;
+--secondaryBG: #ffffff;
+--foregroundBG: #e9ecef;
+--primaryTxt: #212529;
+--secondaryTxt: #343a40;
+--customDark: #FF9B07;
+--custom: #ca7b04; */
+  --primaryBG: #000510;
+  --secondaryBG: #0D121C;
+  --foregroundBG: #31353e;
+  --primaryTxt: #b8b8b8;
+  --border: #444444;
+  --secondaryTxt: #fff;
+  --customDark: #ca7b04;
+  --custom: #FF9B07;
+  --danger: #dc2626;
+  --success: #16a34a;
+}
+
+.dark {
+  --primaryBG: #000510;
+  --secondaryBG: #0D121C;
+  --foregroundBG: #31353e;
+  --primaryTxt: #b8b8b8;
+  --border: #444444;
+  --secondaryTxt: #fff;
+  --customDark: #ca7b04;
+  --custom: #FF9B07;
+    --danger: #dc2626;
+}
+
+@layer utilities {
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #000510 inset !important;
+  -webkit-text-fill-color: var(--secondaryTxt);
+}
+
+html, body {
+  overscroll-behavior-y: contain; /* Stops pull-to-refresh */
+}
+
+.card_icon{
+  @apply text-[var(--secondaryTxt)] text-[40px] font-semibold
+}
+
+.coin_table thead td{
+  @apply p-3 font-semibold
+}
+
+.coin_table tbody td{
+  @apply p-3 text-[var(--secondaryTxt)]
+}
+
+.coin_table tbody tr:nth-child(even){
+  @apply bg-[var(--secondaryBG)]
+}
+
+.custom_btn{
+  @apply text-black w-full px-4 font-medium py-2 rounded-full hover:bg-[var(--customDark)] transition bg-[var(--custom)]
+}
+
+.custom_container{
+  @apply max-w-7xl mx-auto px-[10px] sm:px-6 lg:px-8
+}
+
+.custom_input{
+  @apply bg-transparent outline-none border-none p-[10px] w-full
+}
+
+.custom_line{
+  @apply flex-1 border-b border-b-[var(--border)]
+}
+
+.footer_icon{
+  @apply w-10 h-10 flex border border-[var(--border)] hover:text-[var(--custom)] text-[var(--secondaryTxt)] justify-center items-center bg-[var(--secondaryBG)] rounded-full
+}
+
+.form_input{
+  @apply rounded-full bg-[var(--primaryBG)] flex items-center overflow-hidden
+}
+
+.home_card{
+  @apply border border-[var(--border)] bg-[var(--secondaryBG)] flex flex-col items-center px-3 py-4 rounded-[10px]
+}
+
+.service_circle{
+  @apply rounded-full border border-[var(--border)] z-10 absolute bg-[var(--secondaryBG)] flex justify-center items-center w-[50px] h-[50px]
+}
+
+.service_circle.rel{
+  @apply relative
+}
+
+.social_icon{
+  @apply cursor-pointer flex bg-[var(--secondaryBG)] border border-[var(--border)] items-center justify-center rounded-full w-[50px] h-[50px] mx-2
+}
+
+.swiper-pagination-bullet {
+  background-color: #bbb !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #da3986 !important;
+}
+
+ul,
+ol {
+  list-style: revert;
+  margin: revert;
+  padding: revert;
+}
