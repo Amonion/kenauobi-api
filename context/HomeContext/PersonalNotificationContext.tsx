@@ -6,12 +6,11 @@ import {
   UserNotification,
   UserNotificationStore,
 } from '@/src/zustand/notification/UserNotification'
+import { User } from '@/src/zustand/User'
 import { AuthStore } from '@/src/zustand/user/AuthStore'
 import { BioUser } from '@/src/zustand/user/BioUser'
 import { BioUserSchoolInfo } from '@/src/zustand/user/BioUserSchoolInfo'
 import { BioUserState } from '@/src/zustand/user/BioUserState'
-import { User } from '@/src/zustand/user/User'
-import { Office } from '@/src/zustand/utility/Office'
 import { usePathname } from 'next/navigation'
 import { createContext, useEffect, useContext, ReactNode, useMemo } from 'react'
 
@@ -32,8 +31,6 @@ interface NotificationData {
   bioUserState: BioUserState
   bioUser: BioUser
   user: User
-  activeOffice: Office
-  userOffices: Office[]
   bioUserSchoolInfo: BioUserSchoolInfo
 }
 
