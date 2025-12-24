@@ -9,7 +9,6 @@ import axios, {
   Method,
 } from 'axios'
 import { BioUserSchoolInfo } from '@/src/zustand/user/BioUserSchoolInfo'
-import { Post } from '@/src/zustand/post/Post'
 import { User } from '@/src/zustand/User'
 const apiClient = axios.create({
   baseURL:
@@ -128,7 +127,6 @@ export interface ApiResponseInterface {
   data: ResponseData
   user: User
   bioUser: BioUser
-  posts: Post[]
   bioUserSchoolInfo: BioUserSchoolInfo
   bioUserState: BioUserState
   bioUserSettings: BioUserSettings
