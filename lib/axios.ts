@@ -1,7 +1,6 @@
 import { AuthStore } from '@/src/zustand/user/AuthStore'
 import { BioUser } from '@/src/zustand/user/BioUser'
 import { BioUserState } from '@/src/zustand/user/BioUserState'
-import { User } from '@/src/zustand/user/User'
 import { BioUserSettings } from '@/src/zustand/user/BioUserSettings'
 import axios, {
   AxiosError,
@@ -9,9 +8,9 @@ import axios, {
   AxiosResponse,
   Method,
 } from 'axios'
-import { Office } from '@/src/zustand/utility/Office'
 import { BioUserSchoolInfo } from '@/src/zustand/user/BioUserSchoolInfo'
 import { Post } from '@/src/zustand/post/Post'
+import { User } from '@/src/zustand/User'
 const apiClient = axios.create({
   baseURL:
     process.env.NODE_ENV === 'production'
@@ -133,8 +132,6 @@ export interface ApiResponseInterface {
   bioUserSchoolInfo: BioUserSchoolInfo
   bioUserState: BioUserState
   bioUserSettings: BioUserSettings
-  activeOffice: Office
-  userOffices: Office[]
 }
 
 interface ResponseData {
