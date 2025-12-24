@@ -1,7 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import CoinTicker from '@/components/Dashboard/CoinTicker'
 import CustomBtn from '@/components/CustomBtn'
 import RecentTransactions from '@/components/Dashboard/RecentTransactions'
 import ListedCurrencies from '@/components/Dashboard/ListedCurrencies'
