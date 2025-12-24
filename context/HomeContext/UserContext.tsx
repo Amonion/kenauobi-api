@@ -7,11 +7,11 @@ import {
   SocialNotification,
   SocialNotificationStore,
 } from '@/src/zustand/notification/SocialNotification'
+import { User, UserStore } from '@/src/zustand/User'
 import { AuthStore } from '@/src/zustand/user/AuthStore'
 import { BioUser } from '@/src/zustand/user/BioUser'
 import { BioUserSchoolInfo } from '@/src/zustand/user/BioUserSchoolInfo'
 import { BioUserState } from '@/src/zustand/user/BioUserState'
-import { User, UserStore } from '@/src/zustand/user/User'
 import { createContext, useEffect, useContext, ReactNode, useMemo } from 'react'
 
 const UserContext = createContext<{

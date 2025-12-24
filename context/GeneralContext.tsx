@@ -2,8 +2,8 @@
 import { initializeSound } from '@/lib/sound'
 import useSocket from '@/src/useSocket'
 import { MessageStore } from '@/src/zustand/notification/Message'
+import { User } from '@/src/zustand/User'
 import { AuthStore } from '@/src/zustand/user/AuthStore'
-import { User } from '@/src/zustand/user/User'
 import axios from 'axios'
 import { usePathname } from 'next/navigation'
 import { createContext, useEffect, useContext, ReactNode, useMemo } from 'react'
@@ -101,7 +101,6 @@ export const GeneralProvider = ({ children }: GeneralProviderProps) => {
         ip,
         username: u.username,
         status: u.status,
-        bioUserId: u.bioUserId,
         online,
         pathname,
         visitedAt: online ? new Date() : null,
