@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import apiRequest from '@/lib/axios'
-import { User } from './User'
+import { User } from '../User'
 
 interface FetchResponse {
   count: number
