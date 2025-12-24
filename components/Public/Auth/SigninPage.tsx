@@ -58,22 +58,8 @@ const SigninPage: React.FC = () => {
       })
 
       if (response.status === 200) {
-        const {
-          user,
-          bioUserSettings,
-          bioUser,
-          bioUserState,
-          bioUserSchoolInfo,
-          token,
-        } = response.data
-        AuthStore.getState().login(
-          user,
-          bioUserSettings,
-          bioUser,
-          bioUserState,
-          bioUserSchoolInfo,
-          token
-        )
+        const { user, token } = response.data
+        AuthStore.getState().login(user, token)
 
         setTimeout(() => {
           if (user.isFirstTime) {

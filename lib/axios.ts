@@ -1,14 +1,10 @@
 import { AuthStore } from '@/src/zustand/user/AuthStore'
-import { BioUser } from '@/src/zustand/user/BioUser'
-import { BioUserState } from '@/src/zustand/user/BioUserState'
-import { BioUserSettings } from '@/src/zustand/user/BioUserSettings'
 import axios, {
   AxiosError,
   AxiosRequestConfig,
   AxiosResponse,
   Method,
 } from 'axios'
-import { BioUserSchoolInfo } from '@/src/zustand/user/BioUserSchoolInfo'
 import { User } from '@/src/zustand/User'
 const apiClient = axios.create({
   baseURL:
@@ -126,10 +122,6 @@ export interface ApiResponseInterface {
   count: number
   data: ResponseData
   user: User
-  bioUser: BioUser
-  bioUserSchoolInfo: BioUserSchoolInfo
-  bioUserState: BioUserState
-  bioUserSettings: BioUserSettings
 }
 
 interface ResponseData {

@@ -1,16 +1,7 @@
 'use client'
-import { playPopSound } from '@/lib/sound'
 import useSocket from '@/src/useSocket'
 import { MessageStore } from '@/src/zustand/notification/Message'
-import {
-  UserNotification,
-  UserNotificationStore,
-} from '@/src/zustand/notification/UserNotification'
-import { User } from '@/src/zustand/User'
-import { AuthStore } from '@/src/zustand/user/AuthStore'
-import { BioUser } from '@/src/zustand/user/BioUser'
-import { BioUserSchoolInfo } from '@/src/zustand/user/BioUserSchoolInfo'
-import { BioUserState } from '@/src/zustand/user/BioUserState'
+import { UserNotificationStore } from '@/src/zustand/notification/UserNotification'
 import { usePathname } from 'next/navigation'
 import { createContext, useEffect, useContext, ReactNode, useMemo } from 'react'
 
@@ -24,16 +15,6 @@ interface PersonalNotificationProviderProps {
   children: ReactNode
 }
 
-interface NotificationData {
-  personalNotification: UserNotification
-  officialNotification: UserNotification
-  count: number
-  bioUserState: BioUserState
-  bioUser: BioUser
-  user: User
-  bioUserSchoolInfo: BioUserSchoolInfo
-}
-
 export const PersonalNotificationProvider = ({
   children,
 }: PersonalNotificationProviderProps) => {
@@ -42,63 +23,22 @@ export const PersonalNotificationProvider = ({
     UserNotificationStore()
   const { setMessage } = MessageStore()
   const pathname = usePathname()
-  const { bioUser } = AuthStore()
 
   useEffect(() => {
-    if (
-      pathname === '/home/notifications/personal' &&
-      bioUser &&
-      personalNotifications
-    ) {
+    if (pathname === '/home/notifications/personal' && personalNotifications) {
       const notes = personalNotifications.filter((e) => e.unread === true)
       if (notes.length > 0) {
         const noteIds = notes.map((note) => note._id)
         const form = new FormData()
         form.append('ids', JSON.stringify(noteIds))
         readPersonalNotifications(
-          `/notifications/personal/read/?username=${bioUser?.bioUserUsername}`,
+          `/notifications/personal/read/?username=`,
           form,
           setMessage
         )
       }
     }
-  }, [pathname, bioUser?._id, personalNotifications])
-
-  useEffect(() => {
-    if (!bioUser || !socket) return
-    //////////////PERSONAL NOTIFICATION//////////////
-
-    socket.on(
-      `personal_notification_${bioUser._id}`,
-      (data: NotificationData) => {
-        playPopSound()
-
-        if (data.personalNotification) {
-          UserNotificationStore.setState((prev) => {
-            const notes = [
-              data.personalNotification,
-              ...prev.personalNotifications,
-            ]
-            return {
-              personalNotifications: notes,
-              personalUnread: data.count,
-            }
-          })
-        }
-        if (data.bioUserState) {
-          AuthStore.getState().setAllUser(data.bioUserState, data.bioUser)
-        }
-        if (data.user) {
-          AuthStore.getState().setUser(data.user)
-        }
-      }
-    )
-
-    //////////////STATE UPDATE//////////////
-    return () => {
-      socket?.off(`personal_notification_${bioUser._id}`)
-    }
-  }, [socket, bioUser?._id])
+  }, [pathname, personalNotifications])
 
   const value = useMemo(() => ({ socket }), [socket])
 
