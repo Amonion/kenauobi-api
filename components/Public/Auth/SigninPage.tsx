@@ -6,7 +6,6 @@ import apiRequest, { ApiResponseInterface } from '@/lib/axios'
 import axios from 'axios'
 import { AuthStore } from '@/src/zustand/user/AuthStore'
 import { validateSignUp, ValidationResult } from '@/lib/validateInputs'
-import { PostStore } from '@/src/zustand/post/Post'
 import CustomBtn from '../../CustomBtn'
 import SocialAuth from '../SocialAuth'
 const SigninPage: React.FC = () => {
@@ -66,7 +65,6 @@ const SigninPage: React.FC = () => {
           bioUserState,
           bioUserSchoolInfo,
           token,
-          posts,
         } = response.data
         AuthStore.getState().login(
           user,
@@ -76,7 +74,7 @@ const SigninPage: React.FC = () => {
           bioUserSchoolInfo,
           token
         )
-        PostStore.setState({ postResults: posts })
+
         setTimeout(() => {
           if (user.isFirstTime) {
             setRoute('onboarding')
