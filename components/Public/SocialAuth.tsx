@@ -1,41 +1,8 @@
 'use client'
-import { ethers } from 'ethers'
-import { signIn } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const SocialAuth: React.FC = () => {
-  const handleMetaMaskLogin = async () => {
-    if (!window.ethereum) {
-      alert(
-        'MetaMask not installed! Please install metamask in your browser to continue.'
-      )
-      return
-    }
-
-    try {
-      // Connect to MetaMask
-      const provider = new ethers.BrowserProvider(window.ethereum)
-      await provider.send('eth_requestAccounts', [])
-      const signer = await provider.getSigner()
-
-      // Get wallet address
-      const address = await signer.getAddress()
-
-      // Sign a message to prove ownership
-      const message = 'Login to MyApp'
-      const signature = await signer.signMessage(message)
-
-      // Call NextAuth credentials provider
-      await signIn('credentials', {
-        address,
-        signature,
-        callbackUrl: '/dashboard', // where to redirect after login
-      })
-    } catch (err) {
-      console.error('MetaMask login failed', err)
-    }
-  }
   return (
     <>
       <div className="text-center mt-5">
@@ -65,7 +32,7 @@ const SocialAuth: React.FC = () => {
               className="h-[25px] w-[25px]"
             />
           </Link>
-          <div onClick={handleMetaMaskLogin} className="social_icon">
+          <div className="social_icon">
             <Image
               src={'/images/metamask.png'}
               alt="Ken Coins"
