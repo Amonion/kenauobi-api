@@ -1,4 +1,3 @@
-import { ChatContent } from '@/src/zustand/chat/Chat'
 import { openDB } from 'idb'
 
 const DB_NAME = 'chatDB'
@@ -106,41 +105,6 @@ export const getPendingMessages = async () => {
   const pendingMessages = await index.getAll('pending')
   await tx.done
   return pendingMessages
-}
-
-export const updatePendingMessageStatus = async (
-  connection: string,
-  timeNumber: number,
-  newStatus: string
-) => {
-  const db = await initDB()
-  const tx = db.transaction(MESSAGES_STORE, 'readwrite')
-  const store = tx.objectStore(MESSAGES_STORE)
-
-  const index = store.index('connection')
-  const messages = await index.getAll(connection)
-
-  const targetMessage = messages.find(
-    (msg: ChatContent) =>
-      msg.timeNumber === timeNumber && msg.connection === connection
-  )
-
-  if (!targetMessage) {
-    console.warn(`No pending message found for ${connection} @${timeNumber}`)
-    await tx.done
-    return false
-  }
-
-  const updatedMessage = {
-    ...targetMessage,
-    status: newStatus,
-    updatedAt: new Date().toISOString(),
-  }
-
-  await store.put(updatedMessage)
-  await tx.done
-
-  return true
 }
 
 export const updatePendingFriendMessageStatus = async (
