@@ -87,9 +87,9 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="pt-4 pb-3 border-t border-gray-200">
-              <button className="custom_btn bg-[var(--custom)] text-black">
+              <Link href={`/sign-in`} className="custom_btn">
                 Sign In
-              </button>
+              </Link>
             </div>
           </div>
         </div>
