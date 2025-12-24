@@ -47,6 +47,7 @@
 
 html, body {
   overscroll-behavior-y: contain; /* Stops pull-to-refresh */
+    scroll-behavior: smooth;
 }
 
 .card_icon{
@@ -93,16 +94,32 @@ html, body {
   @apply border border-[var(--border)] bg-[var(--secondaryBG)] flex flex-col items-center px-3 py-4 rounded-[10px]
 }
 
+.section_title{
+  @apply text-center text-[25px] mb-2 leading-[30px] sm:text-[30px] font-semibold text-[var(--secondaryTxt)]
+}
+
 .service_circle{
-  @apply rounded-full border border-[var(--border)] z-10 absolute bg-[var(--secondaryBG)] flex justify-center items-center w-[50px] h-[50px]
+  @apply rounded-full border border-[var(--border)] z-10 md:absolute bg-[var(--secondaryBG)] flex justify-center items-center min-w-[50px] h-[50px]
 }
 
 .service_circle.rel{
   @apply relative
 }
 
+.service_circle_text{
+  @apply flex flex-col items-start
+}
+
 .social_icon{
   @apply cursor-pointer flex bg-[var(--secondaryBG)] border border-[var(--border)] items-center justify-center rounded-full w-[50px] h-[50px] mx-2
+}
+
+.solution_texts{
+  @apply flex items-start z-10 relative gap-3 md:gap-6
+}
+
+.stat_text{
+  @apply mb-1 md:leading-[45px] leading-[30px] text-[25px] md:text-[40px] font-bold text-[var(--custom)]
 }
 
 .swiper-pagination-bullet {

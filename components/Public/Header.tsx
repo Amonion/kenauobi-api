@@ -12,10 +12,10 @@ export default function Navbar() {
   const { theme } = useTheme()
 
   const navItems = [
-    { name: 'About', href: '/about' },
-    { name: 'Features', href: '/features' },
-    { name: 'Faqs', href: '/faqs' },
-    { name: 'About', href: '/about' },
+    { name: 'Reviews', href: '#reviews' },
+    { name: 'Currencies', href: '#currencies' },
+    { name: 'Features', href: '#features' },
+    { name: 'Faqs', href: '#faqs' },
   ]
 
   return (
@@ -23,7 +23,7 @@ export default function Navbar() {
       <div className="custom_container">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center space-x-3">
+            <Link href="#home" className="flex items-center space-x-3">
               <Image
                 src={
                   theme === 'dark'

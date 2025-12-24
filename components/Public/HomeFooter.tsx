@@ -38,7 +38,7 @@ export default function HomeFooter() {
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             <div className="flex flex-col items-start">
               <div className="text-[var(--secondaryTxt)] relative text-xl font-medium mb-5">
                 Page Links

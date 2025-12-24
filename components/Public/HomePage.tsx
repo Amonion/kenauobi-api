@@ -44,7 +44,7 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      <div>
+      <div className="home">
         <div className="custom_container">
           <div className="grid gap-5 md:grid-cols-2 py-[60px] min-h-[80vh] items-center">
             <div className="flex flex-col items-start">
@@ -82,9 +82,9 @@ const HomePage: React.FC = () => {
         </div>
       </div>
 
-      <div className="sm:py-16 py-10">
+      <div id="reviews" className="sm:py-16 py-10 scroll-mt-20">
         <div className="custom_container">
-          <div className="text-center text-[30px] font-semibold text-[var(--secondaryTxt)]">
+          <div className="section_title">
             What our <span className="text-[var(--custom)]">clients say</span>
           </div>
           <div className="mx-auto text-center max-w-[700px]">
@@ -152,7 +152,7 @@ const HomePage: React.FC = () => {
 
       <div className="sm:py-16 py-10">
         <div className="custom_container">
-          <div className="text-center text-[30px] font-semibold text-[var(--secondaryTxt)]">
+          <div className="section_title">
             Most Traded{' '}
             <span className="text-[var(--custom)]">cryptocurrencies</span>
           </div>
@@ -261,16 +261,16 @@ const HomePage: React.FC = () => {
         </div>
       </div>
 
-      <div className="sm:py-16 py-10">
+      <div id="currencies" className="sm:py-16 py-10 scroll-mt-20">
         <div className="custom_container">
           <div className="flex items-center justify-between mb-5">
-            <div className="text-center text-[30px] font-semibold text-[var(--secondaryTxt)]">
+            <div className="section_title">
               Our Listed{' '}
               <span className="text-[var(--custom)]">Cryptocurrencies</span>
             </div>
             <Link
               href={`/`}
-              className="ml-3 text-sm flex items-center rounded-full text-[var(--secondaryTxt)] px-5 py-[6px] border border-[var(--custom)]"
+              className="ml-3 text-sm hidden sm:flex items-center rounded-full text-[var(--secondaryTxt)] px-2 md:px-5 py-[3px] md:py-[6px] border border-[var(--custom)]"
             >
               Start Trading{' '}
               <i className="bi bi-arrow-right text-[var(--custom)] ml-2"></i>
@@ -425,7 +425,7 @@ const HomePage: React.FC = () => {
 
       <div className="sm:py-16 py-10">
         <div className="custom_container">
-          <div className="text-center text-[30px] font-semibold text-[var(--secondaryTxt)]">
+          <div className="section_title">
             Most Traded{' '}
             <span className="text-[var(--custom)]">Cryptocurrencies</span>
           </div>
@@ -436,28 +436,24 @@ const HomePage: React.FC = () => {
           <div className="relative grid grid-cols-2 gap-4 sm:gap-8 sm:grid-cols-4">
             <div className="home_card">
               <i className="bi bi-people card_icon"></i>
-              <div className="mb-1 leading-[45px] text-[40px] font-bold text-[var(--custom)]">
+              <div className="stat_text">
                 100K <span className="text-[30px] -ml-2">+</span>
               </div>
               <div className="text-lg">Active Users</div>
             </div>
             <div className="home_card">
               <i className="bi bi-headset card_icon"></i>
-              <div className="mb-1 leading-[45px] text-[40px] font-bold text-[var(--custom)]">
-                24/7
-              </div>
+              <div className="stat_text">24/7</div>
               <div className="text-lg">Support Agents</div>
             </div>
             <div className="home_card">
               <i className="bi bi-globe-americas card_icon"></i>
-              <div className="mb-1 leading-[45px] text-[40px] font-bold text-[var(--custom)]">
-                81
-              </div>
+              <div className="stat_text">81</div>
               <div className="text-lg">Countries</div>
             </div>
             <div className="home_card">
               <i className="bi bi-cash-coin card_icon"></i>
-              <div className="mb-1 leading-[45px] text-[40px] font-bold text-[var(--custom)]">
+              <div className="stat_text">
                 $100M <span className="text-[30px] -ml-2">+</span>
               </div>
               <div className="text-lg">Total Volume</div>
@@ -466,20 +462,20 @@ const HomePage: React.FC = () => {
         </div>
       </div>
 
-      <div className="sm:py-16 py-10">
+      <div id="features" className="sm:py-16 py-10 scroll-mt-20">
         <div className="custom_container">
-          <div className="text-center text-[30px] font-semibold text-[var(--secondaryTxt)]">
+          <div className="section_title">
             We Deliver{' '}
             <span className="text-[var(--custom)]">Best Solutions</span>
           </div>
-          <div className="mx-auto text-center max-w-[700px] mb-10">
+          <div className="mx-auto text-center max-w-[700px] mb-1 md:mb-10">
             One application with multiple options to give you freedom of buying
             & selling.
           </div>
 
           <div className="relative grid gap-4 md:grid-cols-3">
             <div className="flex flex-col">
-              <div className="flex items-start z-10 relative pt-10 mb-auto">
+              <div className="solution_texts pt-10 mb-5 md:mb-auto">
                 <div className="flex flex-col items-end">
                   <div className="text-[var(--secondaryTxt)] text-xl font-medium">
                     Planning
@@ -488,7 +484,7 @@ const HomePage: React.FC = () => {
                     Map the crypto projects scope with framer template
                   </div>
                 </div>
-                <div className="service_circle -right-10 top-10">
+                <div className="service_circle md:-right-10 top-10">
                   <Image
                     src={`/images/plan.png`}
                     alt={'Bitcoin'}
@@ -499,7 +495,7 @@ const HomePage: React.FC = () => {
                   />
                 </div>
               </div>
-              <div className="flex items-start z-10 relative pb-10">
+              <div className="solution_texts pb-10">
                 <div className="flex flex-col items-end">
                   <div className="text-[var(--secondaryTxt)] text-xl font-medium">
                     Prototype
@@ -527,11 +523,11 @@ const HomePage: React.FC = () => {
                 width={0}
                 height={0}
                 sizes="100vw"
-                className="h-[500px] w-auto"
+                className="md:h-[500px] h-[400px] w-auto"
               />
             </div>
             <div className="flex flex-col">
-              <div className="flex items-start z-10 relative pt-10 mb-auto">
+              <div className="solution_texts mb-5 md:mb-auto">
                 <div className="service_circle -left-10 top-10">
                   <Image
                     src={`/images/filter.png`}
@@ -542,7 +538,7 @@ const HomePage: React.FC = () => {
                     className=""
                   />
                 </div>
-                <div className="flex flex-col items-start pl-6">
+                <div className="service_circle_text">
                   <div className="text-[var(--secondaryTxt)] text-xl font-medium">
                     Planning
                   </div>
@@ -551,7 +547,7 @@ const HomePage: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex items-start z-10 relative pb-10">
+              <div className="solution_texts pb-10">
                 <div className="service_circle -left-10 bottom-10">
                   <Image
                     src={`/images/rocket.png`}
@@ -562,7 +558,7 @@ const HomePage: React.FC = () => {
                     className=""
                   />
                 </div>
-                <div className="flex flex-col items-start pl-7">
+                <div className="service_circle_text">
                   <div className="text-[var(--secondaryTxt)] text-xl font-medium">
                     Prototype
                   </div>
@@ -579,7 +575,7 @@ const HomePage: React.FC = () => {
                 width={0}
                 height={0}
                 sizes="100vw"
-                className="h-[500px] w-auto"
+                className="md:h-[500px] h-[350px] w-auto"
               />
             </div>
           </div>
@@ -588,12 +584,12 @@ const HomePage: React.FC = () => {
 
       <div className="py-10 sm:py-16">
         <div className="custom_container">
-          <div className="rounded-[15px] border border-[var(--border)] bg-[var(--secondaryBG)] p-[50px] flex items-center justify-between">
+          <div className="rounded-[15px] flex-wrap border border-[var(--border)] bg-[var(--secondaryBG)] p-[20px] md:p-[50px] flex items-center justify-between">
             <div className="max-w-[800px]">
-              <div className="text-[40px] text-[var(--secondaryTxt)]">
+              <div className="md:text-[40px] text-[25px] md:mb-0 mb-3 text-[var(--secondaryTxt)]">
                 Crypto powered by framer platform
               </div>
-              <div className="">
+              <div className="md:mb-0 mb-5">
                 Our landing page empower framer developers to have free, safer
                 and more trustworthy experiences get our template now and build
                 your.
@@ -608,7 +604,7 @@ const HomePage: React.FC = () => {
         </div>
       </div>
 
-      <div className="sm:pt-16 pt-10">
+      <div className="sm:py-16 py-10">
         <div className="custom_container">
           <div className="relative grid gap-4 md:grid-cols-2">
             <div className="-mt-[120px]">
@@ -679,7 +675,7 @@ const HomePage: React.FC = () => {
         <div className="custom_container">
           <div className="relative grid gap-4 items-center md:grid-cols-2">
             <div className="">
-              <div className="text-[30px] font-semibold text-[var(--secondaryTxt)]">
+              <div className="section_title">
                 Upgrade Your{' '}
                 <span className="text-[var(--custom)]">Crypto Business</span>
               </div>
@@ -736,9 +732,9 @@ const HomePage: React.FC = () => {
         </div>
       </div>
 
-      <div className="sm:py-16 py-10">
+      <div id="faqs" className="sm:py-16 py-10 scroll-mt-20">
         <div className="custom_container">
-          <div className="text-center text-[30px] font-semibold text-[var(--secondaryTxt)]">
+          <div className="section_title">
             Frequently Asked{' '}
             <span className="text-[var(--custom)]">Questions</span>
           </div>
